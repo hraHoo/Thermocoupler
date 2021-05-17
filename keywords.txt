@@ -1,0 +1,18 @@
+###########################################
+# Syntax Coloring Map For Thermocoupler library by M. Heikkilä
+###########################################
+
+###########################################
+# Datatypes (KEYWORD1)
+###########################################
+
+Thermocoupler	        KEYWORD1
+
+###########################################
+# Methods and Functions (KEYWORD2)
+###########################################
+init		            KEYWORD2
+begin		            KEYWORD2
+Version                 KEYWORD2
+readTempC	            KEYWORD2
+convertToFahrenheith	KEYWORD2

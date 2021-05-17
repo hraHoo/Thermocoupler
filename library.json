@@ -1,0 +1,21 @@
+{
+  "name": "THERMOCOUPLER",
+  "keywords": "MAX6675, MAX31855, Thermocoupler",
+  "description": "Arduino library for MAX31855 ans MAX6675 chip for K type thermocouple.",
+  "authors":
+  [
+    {
+      "name": "Marko Heikkilä",
+      "email": "",
+      "maintainer": true
+    }
+  ],
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/hraHoo/Thermocoupler"
+  },
+  "version":"0.2.1",
+  "frameworks": "arduino",
+  "platforms": "*"
+}
