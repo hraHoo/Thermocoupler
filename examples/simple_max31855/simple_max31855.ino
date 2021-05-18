@@ -20,13 +20,12 @@ void printTemps()
 {
   for (int i = 0; i < sizeof(CS_31855_PINS); i++)
   {  
-    Serial.print("Temperature 31855");
-    Serial.print(" in pin ");
+    Serial.print("Sensor 31855 temperature in pin ");
     Serial.print(CS_31855_PINS[i]);
     Serial.print(" = ");
     Serial.println(celsius[i], 2);
-    Serial.println("----------------------");
   }
+  Serial.println("----------------------");
 }
 
 void setup()

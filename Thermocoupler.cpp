@@ -1,17 +1,28 @@
 //
 //    FILE: Thermocoupler.cpp
 //  AUTHOR: Marko Heikkilä
-// VERSION: 0.1.2
+// VERSION: 0.2.3
 // PURPOSE: Arduino library for MAX6675 chip for K type thermocouple
 //    DATE: 2021-11-05
-//     URL: https://github.com/hraHoo
+//     URL: https://github.com/hraHoo/Thermocoupler
 //
 //  HISTORY:
 //  0.1.0  11-05-2021  - first version MAX6675 read temperature using soft SPI
 //  0.1.2  12-05-2021  - Hardware SPI added
 //                     - Method version added
 //  0.1.3  12-05-2021  - rawdata read is separated, now _rawdata16 and _rawdata32 (just void no return, private variable)
+//	0.2.0  17-05-2021  - MAX31855 impementation, sw and hw SPI
+//	0.2.3  18-05-2021  - Bug and typo fix.
 //
+//
+//
+//
+//  MAX6675  temperature measurement range is    0°C to +1024°C
+//  MAX31855 temperature measurement range is -270°C to +1800°C. Accuracy of ±2°C in range -200°C to +700°C
+//
+//
+//
+//	TODO:	- some kind of status or error indication
 //
 //
 

@@ -1,10 +1,12 @@
 #include "Thermocoupler.h"
 
+#define DEBUG_THERMO
+
 #define MAX_SENSOR_COUNT 15
 
-const byte CS_6675_PINS[] = {0, 4};
+const int CS_6675_PINS[] = {0, 4};
 int CS6675Count;
-const byte CS_31855_PINS[] = {2};
+const int CS_31855_PINS[] = {2};
 int CS31855Count;
 float celsius[MAX_SENSOR_COUNT];
 
@@ -13,7 +15,7 @@ float celsius[MAX_SENSOR_COUNT];
 Thermocoupler tcouple = Thermocoupler();
 
 
-// meke instance of thermocouåpler class using custom SPI pins (software SPI)
+// make instance of thermocouåpler class using custom SPI pins (software SPI)
 // define SPI pins
 const byte thermoDO = 12;
 const byte thermoCLK = 14;
@@ -23,19 +25,21 @@ void printTemps()
 {
   for (int i = 0; i < CS6675Count; i++)
   {
-    Serial.print("Sensor 6675 temperature in pin ");
+    Serial.print("Temperature 6675");
+    Serial.print(" in pin ");
     Serial.print(CS_6675_PINS[i]);
     Serial.print(" = ");
     Serial.println(celsius[i]);
   }
   for (int i = 0; i < CS31855Count; i++)
   {  
-    Serial.print("Sensor 31855 temperature in pin ");
+    Serial.print("Temperature 31855");
+    Serial.print(" in pin ");
     Serial.print(CS_31855_PINS[i]);
     Serial.print(" = ");
     Serial.println(celsius[CS6675Count + i], 2);
+    Serial.println("----------------------");
   }
-  Serial.println("----------------------");
 }
 
 void setup()
@@ -46,8 +50,8 @@ void setup()
   Serial.print("Versio: ");
   Serial.println(tcouple.Version());
 
-  CS6675Count = sizeof(CS_6675_PINS);
-  CS31855Count = sizeof(CS_31855_PINS);
+  CS6675Count = sizeof(CS_6675_PINS) / sizeof(int);
+  CS31855Count = sizeof(CS_31855_PINS) / sizeof(int);
 
   if (CS6675Count + CS31855Count > MAX_SENSOR_COUNT)
   {
@@ -61,7 +65,7 @@ void setup()
   {
     Serial.print("You have ");
     Serial.print(CS6675Count);
-    Serial.print(" Max6675 sensor and ");
+    Serial.print(" Max6675 sensor defined and ");
     Serial.print(CS31855Count);
     Serial.println(" Max31855 sensor defined\n\n");
   }

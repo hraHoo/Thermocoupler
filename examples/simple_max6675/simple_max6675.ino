@@ -1,7 +1,7 @@
 #include "Thermocoupler.h"
 #define MAX_SENSOR_COUNT 15
 
-const int CS_6675_PINS[] = {0, 4};
+const byte CS_6675_PINS[] = {0, 4};
 float celsius[MAX_SENSOR_COUNT];
 
 
@@ -19,12 +19,12 @@ void printTemps()
 {
   for (int i = 0; i < sizeof(CS_6675_PINS); i++)
   {
-    Serial.print("Temperature 6675");
-    Serial.print(" in pin ");
+    Serial.print("Sensor 6675 temperature in pin ");
     Serial.print(CS_6675_PINS[i]);
     Serial.print(" = ");
     Serial.println(celsius[i]);
   }
+  Serial.println("----------------------");
 }
 
 void setup()
@@ -52,8 +52,7 @@ void loop()
   {
     celsius[i] = tcouple.readTempC(CS_6675_PINS[i], 1);
   }
-  for (int i = 0; i < CS31855Count; i++)
-
+ 
   printTemps();
   delay(5000);
 }
