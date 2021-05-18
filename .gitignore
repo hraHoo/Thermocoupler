@@ -1,3 +1,4 @@
 .gitignore
 .vscode*
+.build*
 c_cpp_properties.json
