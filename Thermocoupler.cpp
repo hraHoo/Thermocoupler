@@ -13,6 +13,7 @@
 //  0.1.3  12-05-2021  - rawdata read is separated, now _rawdata16 and _rawdata32 (just void no return, private variable)
 //	0.2.0  17-05-2021  - MAX31855 impementation, sw and hw SPI
 //	0.2.3  18-05-2021  - Bug and typo fix.
+//					           - Now just one Class constractor but two begin() method. On begin() you make choise of Software or Hardware SPI.
 //
 //
 //
