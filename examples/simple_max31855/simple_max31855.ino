@@ -9,13 +9,6 @@ float celsius[MAX_SENSOR_COUNT];
 // meke instance of thermocouåpler class using default hardware SPI pins
 Thermocoupler tcouple = Thermocoupler();
 
-
-// meke instance of thermocouåpler class using custom SPI pins (software SPI)
-// define SPI pins
-const byte thermoDO = 12;
-const byte thermoCLK = 14;
-//Thermocoupler tcouple = Thermocoupler(thermoCLK, thermoDO);
-
 void printTemps()
 {
   for (int i = 0; i < sizeof(CS_31855_PINS); i++)
@@ -37,7 +30,14 @@ void setup()
   Serial.println(tcouple.Version());
 
   // initialize SPI connection
+  // hardware SPI
   tcouple.begin();
+
+  // define custom software SPI pins
+  const byte thermoDO = 12;
+  const byte thermoCLK = 14;
+  //tcouple.begin(thermoCLK, thermoDO);  
+
 
   // initialize all sensor select GPIO-pins to output
   for (int i = 0; i < sizeof(CS_31855_PINS); i++)

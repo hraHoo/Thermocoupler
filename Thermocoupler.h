@@ -77,9 +77,9 @@ class Thermocoupler
 			
 	public:
 		Thermocoupler();
-		Thermocoupler(uint8_t SCLK, uint8_t MISO);
 		String Version();
 		void begin();
+		void begin(uint8_t SCLK, uint8_t MISO);
 		void init(uint8_t SSPin);
 		float readTempC(uint8_t SSPin, uint8_t Type);
 		float convertToFahrenheith(float temp);

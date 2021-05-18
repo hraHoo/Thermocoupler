@@ -32,16 +32,7 @@
 
 Thermocoupler::Thermocoupler()
 {
-	_hwSPI       = 1;
-  _rawData16     = 0;
-  _rawData32     = 0;
-}
 
-Thermocoupler::Thermocoupler(const uint8_t sclk, const uint8_t miso)
-{
-  _hwSPI       = 0;
-  _sclk        = sclk;
-  _miso        = miso;
   _rawData16     = 0;
   _rawData32     = 0;
 }
@@ -59,18 +50,22 @@ String Thermocoupler::Version(){
 */
 void Thermocoupler::begin()
 {
-  if (_hwSPI)
-  {
-    SPI.begin();
-    SPI.beginTransaction(SPI_Settings);
-    delay(50);
-  }
-  else
-  {
-    pinMode(_sclk, OUTPUT);
-    //digitalWrite(_sclk, HIGH);
-    pinMode(_miso, INPUT);
-  }
+	_hwSPI       = 1;
+
+  SPI.begin();
+  SPI.beginTransaction(SPI_Settings);
+  delay(50);
+
+}
+
+void Thermocoupler::begin(const uint8_t sclk, const uint8_t miso)
+{
+  _hwSPI       = 0;
+  _sclk        = sclk;
+  _miso        = miso;
+  pinMode(_sclk, OUTPUT);
+  //digitalWrite(_sclk, HIGH);
+  pinMode(_miso, INPUT);
 }
 
 /*
